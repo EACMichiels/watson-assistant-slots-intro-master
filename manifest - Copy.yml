@@ -1,0 +1,16 @@
+---
+declared-services:
+  EACM-WAS-IBMDemos:
+    label: conversation
+    plan: free
+applications:
+- name: EACM-App-IBMDemos
+  command: npm start
+  path: .
+  memory: 256M
+  instances: 1
+  services:
+  - EACM-WAS-IBMDemos
+  env:
+    NPM_CONFIG_PRODUCTION: false
+  buildpack: sdk-for-nodejs
